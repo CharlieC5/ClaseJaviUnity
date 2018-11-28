@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
         posicionObjetivo = Camera.main.ScreenToWorldPoint(mousePosition);
         }
 
-        gameObject.transform.position = Vector2.MoveTowards(transform.position, new Vector2(posicionObjetivo.x, transform.position.y), velocidad * Time.deltaTime);
-        
+        gameObject.transform.position = Vector2.MoveTowards(transform.position, new Vector2(posicionObjetivo.x, transform.position.y), velocidad * Time.deltaTime ); // conversion unid/sec a unid/frame
+
 
     }
 
@@ -43,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
 
-        capsula.velocity = velocidad * new Vector2(horizontal, 0);
+        capsula.velocity = velocidad * new Vector2(horizontal, capsula.velocity.y)
+            ;
     }
     
 
